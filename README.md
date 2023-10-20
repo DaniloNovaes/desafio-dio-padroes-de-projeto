@@ -20,6 +20,7 @@ classDiagram
         +String deleteFromWishList(Integer id)
     }
     class ProductService_ {
+        +ProductRepository productRepository
         +Product getFromWishList(Integer id)
         +Product addToWishList(Product product)
         +Product updateWishList(Product product)
@@ -33,5 +34,6 @@ classDiagram
     }
     ProductController --> ProductService_
     ProductService_ --> ProductRepository
-    Product -->|> Serializable
+    Product <-- ProductController : 1..1
+    Product <-- ProductService_ : 1..1
 ```
